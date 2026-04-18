@@ -43,12 +43,21 @@ create table if not exists trash_talk (
   created_at timestamptz not null default now()
 );
 
+create table if not exists course_notes (
+  course_id text not null,
+  hole_number int not null,
+  strategy text,
+  updated_at timestamptz not null default now(),
+  primary key (course_id, hole_number)
+);
+
 -- Relaxed RLS: PIN-gated app; treat anon key as shared group key.
 alter table cup_results enable row level security;
 alter table solo_results enable row level security;
 alter table handicaps enable row level security;
 alter table house_info enable row level security;
 alter table trash_talk enable row level security;
+alter table course_notes enable row level security;
 
 do $$
 begin
@@ -66,5 +75,8 @@ begin
   end if;
   if not exists (select 1 from pg_policies where tablename='trash_talk' and policyname='anon_all') then
     create policy anon_all on trash_talk for all using (true) with check (true);
+  end if;
+  if not exists (select 1 from pg_policies where tablename='course_notes' and policyname='anon_all') then
+    create policy anon_all on course_notes for all using (true) with check (true);
   end if;
 end $$;

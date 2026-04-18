@@ -51,3 +51,10 @@ export type TrashTalk = {
   message: string;
   created_at: string;
 };
+
+export type CourseNote = {
+  course_id: string;
+  hole_number: number;
+  strategy: string | null;
+  updated_at: string;
+};

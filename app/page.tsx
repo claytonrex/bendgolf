@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DAYS, TRIP_START, TRIP_END } from "@/lib/data";
 import { todayPacific, daysUntil } from "@/lib/date";
 import { HomeLeaderboards } from "@/components/HomeLeaderboards";
@@ -52,6 +53,28 @@ export default function HomePage() {
       )}
 
       <HomeLeaderboards />
+
+      <section>
+        <h2 className="text-sm uppercase tracking-wider text-stone-500 mb-2">Quick Links</h2>
+        <div className="grid grid-cols-2 gap-3">
+          <Link
+            href="/house"
+            className="rounded-2xl bg-white border border-stone-200 shadow-sm p-4 active:bg-stone-50"
+          >
+            <div className="text-2xl">🏡</div>
+            <div className="font-semibold mt-1">House</div>
+            <div className="text-xs text-stone-500">Address, Wi-Fi, door code</div>
+          </Link>
+          <Link
+            href="/courses"
+            className="rounded-2xl bg-white border border-stone-200 shadow-sm p-4 active:bg-stone-50"
+          >
+            <div className="text-2xl">⛳</div>
+            <div className="font-semibold mt-1">Course Guides</div>
+            <div className="text-xs text-stone-500">Hole-by-hole yardages</div>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

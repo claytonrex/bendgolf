@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DAYS, ROUNDS } from "@/lib/data";
 import { DayCard } from "@/components/DayCard";
 import { RoundWeather } from "@/components/RoundWeather";
@@ -34,16 +35,24 @@ export default function ItineraryPage() {
               <div className="mt-2">
                 <RoundWeather round={r} />
               </div>
-              {r.website && (
-                <a
-                  href={r.website}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs text-emerald-700 font-semibold mt-1 inline-block"
+              <div className="flex gap-3 mt-1">
+                <Link
+                  href={`/courses/${r.courseId}`}
+                  className="text-xs text-emerald-700 font-semibold"
                 >
-                  Course website →
-                </a>
-              )}
+                  Hole guide →
+                </Link>
+                {r.website && (
+                  <a
+                    href={r.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-emerald-700 font-semibold"
+                  >
+                    Course site →
+                  </a>
+                )}
+              </div>
             </li>
           ))}
         </ul>

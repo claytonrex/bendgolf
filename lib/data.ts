@@ -49,6 +49,13 @@ export type Round = {
   website?: string;
   lat: number;
   lng: number;
+  courseId:
+    | "quail_run"
+    | "sunriver_meadows"
+    | "juniper"
+    | "pronghorn"
+    | "caldera"
+    | "crosswater";
 };
 
 export const ROUNDS: Round[] = [
@@ -67,6 +74,7 @@ export const ROUNDS: Round[] = [
     notes: "16725 Northridge Dr, La Pine, OR",
     lat: 43.725,
     lng: -121.521,
+    courseId: "quail_run",
   },
   {
     id: "wed_pm",
@@ -83,6 +91,7 @@ export const ROUNDS: Round[] = [
     notes: "Team selects each hole at lunch (see score sheet)",
     lat: 43.725,
     lng: -121.521,
+    courseId: "quail_run",
   },
   {
     id: "thu_am",
@@ -99,6 +108,7 @@ export const ROUNDS: Round[] = [
     notes: "Handicaps used. Worst net score on hole = strike. 4 strikes = out.",
     lat: 43.876,
     lng: -121.447,
+    courseId: "sunriver_meadows",
   },
   {
     id: "fri_am",
@@ -115,6 +125,7 @@ export const ROUNDS: Round[] = [
     notes: "Book 60 days out — still need to book.",
     lat: 44.263,
     lng: -121.208,
+    courseId: "juniper",
   },
   {
     id: "fri_pm",
@@ -131,6 +142,7 @@ export const ROUNDS: Round[] = [
     website: "https://pronghorn.com/golf/nicklaus-course",
     lat: 44.132,
     lng: -121.219,
+    courseId: "pronghorn",
   },
   {
     id: "sat_am",
@@ -147,6 +159,7 @@ export const ROUNDS: Round[] = [
     notes: "9 or 18 holes pending time. Gross score only — lowest wins.",
     lat: 43.871,
     lng: -121.438,
+    courseId: "caldera",
   },
   {
     id: "sat_pm",
@@ -164,6 +177,7 @@ export const ROUNDS: Round[] = [
     notes: "Team starts up holes based on cup matches won during the week.",
     lat: 43.869,
     lng: -121.468,
+    courseId: "crosswater",
   },
 ];
 

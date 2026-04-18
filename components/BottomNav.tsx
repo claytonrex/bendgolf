@@ -5,12 +5,12 @@ import { usePathname } from "next/navigation";
 const ITEMS = [
   { href: "/", label: "Home", icon: "🏠" },
   { href: "/itinerary", label: "Plan", icon: "📅" },
+  { href: "/courses", label: "Holes", icon: "⛳" },
   { href: "/cup", label: "Cup", icon: "🏆" },
-  { href: "/solo", label: "Solo", icon: "⛳" },
+  { href: "/solo", label: "Solo", icon: "🥇" },
   { href: "/scores", label: "Scores", icon: "✏️" },
   { href: "/talk", label: "Talk", icon: "💬" },
   { href: "/awards", label: "Awards", icon: "🏅" },
-  { href: "/house", label: "House", icon: "🏡" },
 ];
 
 export function BottomNav() {
