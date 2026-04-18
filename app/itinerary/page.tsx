@@ -1,5 +1,6 @@
 import { DAYS, ROUNDS } from "@/lib/data";
 import { DayCard } from "@/components/DayCard";
+import { RoundWeather } from "@/components/RoundWeather";
 
 export default function ItineraryPage() {
   return (
@@ -30,6 +31,9 @@ export default function ItineraryPage() {
                 {r.isChampionship && <span className="ml-2 text-emerald-700 font-semibold">FINALS</span>}
               </div>
               {r.notes && <div className="text-xs text-stone-400 mt-1">{r.notes}</div>}
+              <div className="mt-2">
+                <RoundWeather round={r} />
+              </div>
               {r.website && (
                 <a
                   href={r.website}

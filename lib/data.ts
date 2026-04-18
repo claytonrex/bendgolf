@@ -47,6 +47,8 @@ export type Round = {
   cost: string;
   notes?: string;
   website?: string;
+  lat: number;
+  lng: number;
 };
 
 export const ROUNDS: Round[] = [
@@ -63,6 +65,8 @@ export const ROUNDS: Round[] = [
     isSolo: false,
     cost: "$95 walk / $115 cart / $125 scooter",
     notes: "16725 Northridge Dr, La Pine, OR",
+    lat: 43.725,
+    lng: -121.521,
   },
   {
     id: "wed_pm",
@@ -77,6 +81,8 @@ export const ROUNDS: Round[] = [
     isSolo: false,
     cost: "$60 walk / $75 cart / $90 scooter",
     notes: "Team selects each hole at lunch (see score sheet)",
+    lat: 43.725,
+    lng: -121.521,
   },
   {
     id: "thu_am",
@@ -91,6 +97,8 @@ export const ROUNDS: Round[] = [
     isSolo: true,
     cost: "$185",
     notes: "Handicaps used. Worst net score on hole = strike. 4 strikes = out.",
+    lat: 43.876,
+    lng: -121.447,
   },
   {
     id: "fri_am",
@@ -105,6 +113,8 @@ export const ROUNDS: Round[] = [
     isSolo: false,
     cost: "$120 with Cart",
     notes: "Book 60 days out — still need to book.",
+    lat: 44.263,
+    lng: -121.208,
   },
   {
     id: "fri_pm",
@@ -119,6 +129,8 @@ export const ROUNDS: Round[] = [
     isSolo: false,
     cost: "$149 walking",
     website: "https://pronghorn.com/golf/nicklaus-course",
+    lat: 44.132,
+    lng: -121.219,
   },
   {
     id: "sat_am",
@@ -133,6 +145,8 @@ export const ROUNDS: Round[] = [
     isSolo: true,
     cost: "$80 first round / $15 replay",
     notes: "9 or 18 holes pending time. Gross score only — lowest wins.",
+    lat: 43.871,
+    lng: -121.438,
   },
   {
     id: "sat_pm",
@@ -148,6 +162,8 @@ export const ROUNDS: Round[] = [
     isChampionship: true,
     cost: "$250",
     notes: "Team starts up holes based on cup matches won during the week.",
+    lat: 43.869,
+    lng: -121.468,
   },
 ];
 
