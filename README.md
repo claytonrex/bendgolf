@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bend Golf Trip 2026
 
-## Getting Started
+Tiny mobile-first webapp for a 4-guy golf trip: itinerary, team cup, solo leaderboard, score entry.
 
-First, run the development server:
+**Teams**: Curry/Lamb vs McDonald/Prather
+**Dates**: June 8–14, 2026 (Sunriver, OR)
+
+## Stack
+
+- Next.js (App Router) + Tailwind
+- Supabase (realtime Postgres)
+- Deployed to Vercel (free tier)
+
+## One-time setup
+
+### 1. Supabase project (free)
+
+1. Create an account at https://supabase.com and make a new project.
+2. In the dashboard → **SQL Editor**, paste and run `supabase/schema.sql`.
+3. Go to **Project Settings → API** and copy:
+   - `Project URL`
+   - `anon public` key
+
+### 2. Local env
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.local.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Fill in:
+- `NEXT_PUBLIC_SUPABASE_URL` — from Supabase
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — from Supabase
+- `NEXT_PUBLIC_TRIP_PIN` — any group PIN (e.g. `2026`). Leave blank to skip the gate.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repo to GitHub.
+2. Import it at https://vercel.com/new.
+3. Add the three `NEXT_PUBLIC_*` env vars in Vercel project settings.
+4. Deploy. Share the `*.vercel.app` URL + PIN with the group.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Using the app
 
-## Deploy on Vercel
+- **Home** — countdown, today's plan, live leaderboards
+- **Plan** — full day-by-day itinerary + round list
+- **Cup** — team cup holes + match history
+- **Solo** — solo championship points + per-round podiums
+- **Scores** — enter results after each round (team winner or solo 1/2/3)
+- **House** — shared notes: address, Wi-Fi, door code, room assignments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Realtime: every phone updates instantly when anyone enters a score.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- No real auth. The PIN is a soft gate — treat the anon key + app URL as "shared group credentials". Don't put anything sensitive in the house notes.
+- To change team assignments or add courses, edit `lib/data.ts`.
